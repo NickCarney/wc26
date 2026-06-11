@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="ballGrad" cx="38%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#c8c8c8"/>
+    </radialGradient>
+    <clipPath id="ballClip">
+      <circle cx="50" cy="50" r="46"/>
+    </clipPath>
+  </defs>
+
+  <!-- Ball -->
+  <circle cx="50" cy="50" r="46" fill="url(#ballGrad)" stroke="#111" stroke-width="3"/>
+
+  <!-- Black pentagon patches, clipped to ball circle -->
+  <g fill="#111" clip-path="url(#ballClip)">
+    <!-- Center pentagon (pointing up, circumradius 12, centered at 50,50) -->
+    <polygon points="50,38 61.4,46.3 57.1,59.7 42.9,59.7 38.6,46.3"/>
+
+    <!-- Outer pentagons: each translated to position, then rotated to face outward -->
+    <!-- Pentagon template (pointing up, circumradius 12): 0,-12 11.4,-3.7 7.1,9.7 -7.1,9.7 -11.4,-3.7 -->
+
+    <!-- Top (0°) -->
+    <polygon transform="translate(50,20)" points="0,-12 11.4,-3.7 7.1,9.7 -7.1,9.7 -11.4,-3.7"/>
+    <!-- Upper-right (72°) -->
+    <polygon transform="translate(78.5,40.7) rotate(72)" points="0,-12 11.4,-3.7 7.1,9.7 -7.1,9.7 -11.4,-3.7"/>
+    <!-- Lower-right (144°) -->
+    <polygon transform="translate(67.6,74.3) rotate(144)" points="0,-12 11.4,-3.7 7.1,9.7 -7.1,9.7 -11.4,-3.7"/>
+    <!-- Lower-left (216°) -->
+    <polygon transform="translate(32.4,74.3) rotate(216)" points="0,-12 11.4,-3.7 7.1,9.7 -7.1,9.7 -11.4,-3.7"/>
+    <!-- Upper-left (288°) -->
+    <polygon transform="translate(21.5,40.7) rotate(288)" points="0,-12 11.4,-3.7 7.1,9.7 -7.1,9.7 -11.4,-3.7"/>
+  </g>
+</svg>
