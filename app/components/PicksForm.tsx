@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useRef, useState, useEffect } from "react";
+import Link from "next/link";
 import { savePicks, type FormState } from "@/app/actions";
 import type { Player } from "@/lib/data";
 import { getFlag } from "@/lib/flags";
@@ -356,6 +357,12 @@ export default function PicksForm({ teams, allPlayers, goalkeepers, youngPlayers
           <div className="mb-3 text-5xl">⚽</div>
           <p className="text-2xl font-bold text-zinc-900">Picks submitted!</p>
           <p className="mt-2 text-zinc-500">Your WC26 picks have been saved.</p>
+          <Link
+            href={`/picks/${encodeURIComponent(picks.username)}`}
+            className="mt-5 inline-block rounded-full bg-green-700 px-5 py-2 text-sm font-semibold text-white hover:bg-green-600 transition-colors"
+          >
+            View your picks →
+          </Link>
         </div>
       </div>
     );
@@ -382,6 +389,12 @@ export default function PicksForm({ teams, allPlayers, goalkeepers, youngPlayers
             <p className="mt-1 text-sm text-white/60">
               One entry per person — picks are final on submit
             </p>
+            <Link
+              href="/picks"
+              className="mt-3 inline-block rounded-full bg-white/20 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm hover:bg-white/30 transition-colors"
+            >
+              View everyone's picks →
+            </Link>
           </div>
 
           <div className="rounded-2xl bg-white/95 p-6 shadow-2xl backdrop-blur-sm sm:p-8">
